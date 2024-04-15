@@ -1,1 +1,1 @@
-src/assets/websites/*.css -linguist-detectable
+src/assets/websites/**.css -linguist-detectable
