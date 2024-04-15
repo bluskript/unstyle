@@ -1,0 +1,18 @@
+{
+	"$schema": "../schemas/out/color-schema.json",
+	"id": "magic",
+	"variables": {
+		"ui": {
+			"background-dark": "#ece3ff",
+			"background": "#e4d8ff",
+			"background-light": "#d0c5e9",
+			"border": "#78699a",
+			"selection": "#7c42ff",
+			"text": "#140f1f",
+			"primary": "#3d9cff",
+			"secondary": "#ffbb24",
+			"link": "#89b4fa",
+			"link-visited": "#cba6f7"
+		}
+	}
+}

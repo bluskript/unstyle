@@ -1,0 +1,178 @@
+::selection {
+  background-color: var(--selection) !important;
+}
+
+body {
+  background-color: var(--background) !important;
+}
+
+.vector-feature-zebra-design-disabled,
+body {
+  background-color: var(--background) !important;
+}
+
+.wikitable {
+  background-color: var(--wikitable-background) !important;
+}
+
+.vector-main-menu,
+.vector-pinnable-element {
+  background-color: var(--toc-background) !important;
+}
+
+.vector-header-container {
+  background-color: var(--background-dark) !important;
+}
+
+.mw-page-container {
+  background-color: var(--background-light) !important;
+}
+
+#content {
+  border-color: var(--border) !important;
+}
+
+#content pre:not([class*="CodeMirror"]),
+#content code,
+#content tt {
+  background-color: var(--code-background);
+  color: var(--code-text);
+  border-color: var(--code-border);
+}
+
+.mw-body {
+  background-color: var(--body-background) !important;
+  color: var(--text);
+}
+
+.wikitable>tr>th,
+.wikitable>tr>td,
+.wikitable>*>tr>th,
+.wikitable>*>tr>td {
+  color: var(--text);
+  border-color: var(--border);
+}
+
+.wikitable>tr>th,
+.wikitable>*>tr>th {
+  background-color: var(--wikitable-background);
+  color: var(--text);
+}
+
+.vector-feature-zebra-design-disabled,
+#vector-toc-pinned-container,
+.vector-toc::after {
+  background: linear-gradient(rgba(255, 255, 255, 0),
+      var(--toc-background)) !important;
+}
+
+#content table,
+#content h1,
+#content h2,
+#content h3,
+#content h4,
+#content h5,
+#content pre,
+#content code,
+#content tt {
+  color: var(--text) !important;
+}
+
+#archnavbar {
+  background-color: var(--background-light) !important;
+  border-bottom-color: var(--header-border) !important;
+}
+
+#content,
+header.mw-header li:not(.new),
+#mw-panel-toc,
+#mw-navigation li:not(.new),
+#mw-panel li:not(.new),
+#column-one li:not(.new),
+#footer {
+  a:not([role="button"], .new) {
+    color: var(--header-text) !important;
+  }
+}
+
+#content {
+  border-color: var(--border);
+}
+
+a {
+  color: var(--link);
+}
+
+a:visited {
+  color: var(--link-visited);
+}
+
+pre,
+code,
+tt {
+  background-color: var(--code-background);
+  color: var(--code-text);
+  border-color: var(--code-border);
+}
+
+button {
+  background-color: var(--button-background);
+  color: var(--button-text);
+  border-color: var(--button-border);
+}
+
+button:hover {
+  background-color: var(--button-background-hover);
+}
+
+input,
+textarea {
+  background-color: var(--input-background);
+  color: var(--input-text);
+  border-color: var(--input-border);
+}
+
+input:focus,
+textarea:focus {
+  border-color: var(--input-focus-border);
+  box-shadow: 0 0 0 2px var(--input-focus-shadow);
+}
+
+.overlay {
+  background: linear-gradient(var(--overlay-background-gradient-start),
+      var(--overlay-background-gradient-end));
+}
+
+.menu {
+  background-color: var(--menu-background);
+  color: var(--menu-text);
+}
+
+.menu:hover {
+  background-color: var(--menu-hover-background);
+}
+
+.menu-selected {
+  background-color: var(--menu-selected-background);
+  color: var(--menu-selected-text);
+}
+
+header {
+  background-color: var(--header-background);
+  color: var(--header-text);
+  border-bottom-color: var(--header-border);
+}
+
+#archnavbarlogo {
+  color: var(--logo-foreground);
+  fill: var(--logo-accent);
+}
+
+footer {
+  background-color: var(--footer-background);
+  color: var(--footer-text);
+}
+
+footer a {
+  color: var(--footer-link);
+}

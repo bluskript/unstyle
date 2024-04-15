@@ -1,0 +1,405 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "format": "string"
+    },
+    "id": {
+      "type": "string",
+      "format": "string"
+    },
+    "extends": {
+      "type": "string",
+      "format": "string"
+    },
+    "variables": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "object",
+          "properties": {
+            "comment": {
+              "type": "string",
+              "format": "string"
+            },
+            "constant": {
+              "type": "string",
+              "format": "string"
+            },
+            "constant.builtin": {
+              "type": "string",
+              "format": "string"
+            },
+            "constant.character": {
+              "type": "string",
+              "format": "string"
+            },
+            "constant.character.escape": {
+              "type": "string",
+              "format": "string"
+            },
+            "constant.numeric": {
+              "type": "string",
+              "format": "string"
+            },
+            "constant.other": {
+              "type": "string",
+              "format": "string"
+            },
+            "entity": {
+              "type": "string",
+              "format": "string"
+            },
+            "entity.name": {
+              "type": "string",
+              "format": "string"
+            },
+            "entity.name.class": {
+              "type": "string",
+              "format": "string"
+            },
+            "entity.name.function": {
+              "type": "string",
+              "format": "string"
+            },
+            "entity.name.method": {
+              "type": "string",
+              "format": "string"
+            },
+            "entity.name.section": {
+              "type": "string",
+              "format": "string"
+            },
+            "entity.name.tag": {
+              "type": "string",
+              "format": "string"
+            },
+            "entity.name.type": {
+              "type": "string",
+              "format": "string"
+            },
+            "entity.other.attribute-name": {
+              "type": "string",
+              "format": "string"
+            },
+            "entity.other.inherited-class": {
+              "type": "string",
+              "format": "string"
+            },
+            "invalid": {
+              "type": "string",
+              "format": "string"
+            },
+            "invalid.deprecated": {
+              "type": "string",
+              "format": "string"
+            },
+            "invalid.illegal": {
+              "type": "string",
+              "format": "string"
+            },
+            "keyword": {
+              "type": "string",
+              "format": "string"
+            },
+            "keyword.control": {
+              "type": "string",
+              "format": "string"
+            },
+            "keyword.control.import": {
+              "type": "string",
+              "format": "string"
+            },
+            "keyword.operator": {
+              "type": "string",
+              "format": "string"
+            },
+            "keyword.other": {
+              "type": "string",
+              "format": "string"
+            },
+            "markup": {
+              "type": "string",
+              "format": "string"
+            },
+            "markup.bold": {
+              "type": "string",
+              "format": "string"
+            },
+            "markup.changed": {
+              "type": "string",
+              "format": "string"
+            },
+            "markup.deleted": {
+              "type": "string",
+              "format": "string"
+            },
+            "markup.heading": {
+              "type": "string",
+              "format": "string"
+            },
+            "markup.inline.raw": {
+              "type": "string",
+              "format": "string"
+            },
+            "markup.inserted": {
+              "type": "string",
+              "format": "string"
+            },
+            "markup.italic": {
+              "type": "string",
+              "format": "string"
+            },
+            "markup.list": {
+              "type": "string",
+              "format": "string"
+            },
+            "markup.quote": {
+              "type": "string",
+              "format": "string"
+            },
+            "markup.raw": {
+              "type": "string",
+              "format": "string"
+            },
+            "markup.underline": {
+              "type": "string",
+              "format": "string"
+            },
+            "markup.underline.link": {
+              "type": "string",
+              "format": "string"
+            },
+            "meta": {
+              "type": "string",
+              "format": "string"
+            },
+            "meta.block": {
+              "type": "string",
+              "format": "string"
+            },
+            "meta.class": {
+              "type": "string",
+              "format": "string"
+            },
+            "meta.function": {
+              "type": "string",
+              "format": "string"
+            },
+            "meta.function-call": {
+              "type": "string",
+              "format": "string"
+            },
+            "meta.method-call": {
+              "type": "string",
+              "format": "string"
+            },
+            "meta.preprocessor": {
+              "type": "string",
+              "format": "string"
+            },
+            "meta.return-type": {
+              "type": "string",
+              "format": "string"
+            },
+            "meta.selector": {
+              "type": "string",
+              "format": "string"
+            },
+            "meta.tag": {
+              "type": "string",
+              "format": "string"
+            },
+            "meta.type.annotation": {
+              "type": "string",
+              "format": "string"
+            },
+            "punctuation.definition.comment": {
+              "type": "string",
+              "format": "string"
+            },
+            "punctuation.definition.string": {
+              "type": "string",
+              "format": "string"
+            },
+            "punctuation.definition.variable": {
+              "type": "string",
+              "format": "string"
+            },
+            "punctuation.section.embedded": {
+              "type": "string",
+              "format": "string"
+            },
+            "storage": {
+              "type": "string",
+              "format": "string"
+            },
+            "storage.modifier": {
+              "type": "string",
+              "format": "string"
+            },
+            "storage.type": {
+              "type": "string",
+              "format": "string"
+            },
+            "string": {
+              "type": "string",
+              "format": "string"
+            },
+            "string.interpolated": {
+              "type": "string",
+              "format": "string"
+            },
+            "string.other": {
+              "type": "string",
+              "format": "string"
+            },
+            "string.quoted": {
+              "type": "string",
+              "format": "string"
+            },
+            "string.regexp": {
+              "type": "string",
+              "format": "string"
+            },
+            "support": {
+              "type": "string",
+              "format": "string"
+            },
+            "support.class": {
+              "type": "string",
+              "format": "string"
+            },
+            "support.constant": {
+              "type": "string",
+              "format": "string"
+            },
+            "support.function": {
+              "type": "string",
+              "format": "string"
+            },
+            "support.other": {
+              "type": "string",
+              "format": "string"
+            },
+            "support.type": {
+              "type": "string",
+              "format": "string"
+            },
+            "support.variable": {
+              "type": "string",
+              "format": "string"
+            },
+            "variable": {
+              "type": "string",
+              "format": "string"
+            },
+            "variable.function": {
+              "type": "string",
+              "format": "string"
+            },
+            "variable.language": {
+              "type": "string",
+              "format": "string"
+            },
+            "variable.name": {
+              "type": "string",
+              "format": "string"
+            },
+            "variable.other": {
+              "type": "string",
+              "format": "string"
+            },
+            "variable.parameter": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "ui": {
+          "type": "object",
+          "properties": {
+            "background": {
+              "type": "string",
+              "format": "string"
+            },
+            "primary": {
+              "type": "string",
+              "format": "string"
+            },
+            "primary-light": {
+              "type": "string",
+              "format": "string"
+            },
+            "primary-dark": {
+              "type": "string",
+              "format": "string"
+            },
+            "secondary": {
+              "type": "string",
+              "format": "string"
+            },
+            "secondary-light": {
+              "type": "string",
+              "format": "string"
+            },
+            "secondary-dark": {
+              "type": "string",
+              "format": "string"
+            },
+            "background-dark": {
+              "type": "string",
+              "format": "string"
+            },
+            "background-light": {
+              "type": "string",
+              "format": "string"
+            },
+            "text": {
+              "type": "string",
+              "format": "string"
+            },
+            "selection": {
+              "type": "string",
+              "format": "string"
+            },
+            "border": {
+              "type": "string",
+              "format": "string"
+            },
+            "link": {
+              "type": "string",
+              "format": "string"
+            },
+            "link-visited": {
+              "type": "string",
+              "format": "string"
+            },
+            "button-background": {
+              "type": "string",
+              "format": "string"
+            },
+            "button-background-hover": {
+              "type": "string",
+              "format": "string"
+            },
+            "button-text": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "id",
+    "variables"
+  ],
+  "additionalProperties": false
+}

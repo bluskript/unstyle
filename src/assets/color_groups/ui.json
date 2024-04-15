@@ -1,0 +1,24 @@
+{
+  "$schema": "../schemas/out/color-group.json",
+  "id": "ui",
+  "name": "UI",
+  "variables": {
+    "background": [],
+    "primary": [],
+    "primary-light": ["ui:primary"],
+    "primary-dark": ["ui:secondary"],
+    "secondary": [],
+    "secondary-light": ["ui:secondary"],
+    "secondary-dark": ["ui:secondary"],
+    "background-dark": ["ui:background"],
+    "background-light": ["ui:background"],
+    "text": [],
+    "selection": [],
+    "border": ["ui:background-light"],
+    "link": ["ui:primary"],
+    "link-visited": ["ui:secondary"],
+    "button-background": ["ui:primary"],
+    "button-background-hover": ["ui:primary-light"],
+    "button-text": ["ui:text"]
+  }
+}

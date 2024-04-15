@@ -1,0 +1,44 @@
+{
+  "name": "vite-web-extension",
+  "version": "1.0.0",
+  "displayName": "Vite Web Extension",
+  "author": "@samrum/vite-plugin-web-extension",
+  "description": "A @samrum/vite-plugin-web-extension web extension",
+  "type": "module",
+  "scripts": {
+    "build": "vite build",
+    "watch": "vite build --watch --mode development --minify false",
+    "dev": "vite",
+    "serve:firefox": "web-ext run --start-url \"about:debugging#/runtime/this-firefox\"  --source-dir ./dist/",
+    "serve:chrome": "web-ext run -t chromium --start-url \"https://example.com\" --source-dir ./dist/",
+    "regen": "bun ./src/assets/schemas/gen_schema.ts; json2ts -i src/assets/schemas/out -o src/assets/schemas/types"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@samrum/vite-plugin-web-extension": "^5.0.0",
+    "@types/bun": "^1.0.12",
+    "@types/chrome": "^0.0.254",
+    "@types/micromatch": "^4.0.7",
+    "@types/webextension-polyfill": "^0.10.6",
+    "json-schema-to-typescript": "^13.1.2",
+    "typescript": "^5.2.2",
+    "typescript-json-schema": "^0.63.0",
+    "urlpattern-polyfill": "^10.0.0",
+    "vite": "^5.0.0",
+    "vite-plugin-solid": "^2.7.2",
+    "web-ext": "^7.8.0"
+  },
+  "trustedDependencies": [
+    "dtrace-provider"
+  ],
+  "dependencies": {
+    "@unocss/preset-icons": "^0.59.2",
+    "@unocss/preset-uno": "^0.59.2",
+    "match-url-wildcard": "^0.0.5",
+    "micromatch": "^4.0.5",
+    "solid-js": "^1.8.5",
+    "unocss": "^0.59.2",
+    "vite-plugin-inline-css-modules": "^0.0.7",
+    "webextension-polyfill": "^0.10.0"
+  }
+}

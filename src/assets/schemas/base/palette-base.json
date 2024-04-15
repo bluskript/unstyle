@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "format": "string"
+    },
+    "id": {
+      "type": "string",
+      "format": "string"
+    },
+    "extends": {
+      "type": "string",
+      "format": "string"
+    },
+    "variables": {
+      "type": "object",
+      "properties": {},
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "id",
+    "variables"
+  ],
+  "additionalProperties": false
+}

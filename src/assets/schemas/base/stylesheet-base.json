@@ -1,0 +1,35 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "format": "string"
+    },
+    "id": {
+      "type": "string",
+      "format": "string"
+    },
+    "name": {
+      "type": "string",
+      "format": "string"
+    },
+    "description": {
+      "type": "string",
+      "format": "string"
+    },
+    "author": {
+      "type": "string",
+      "format": "string"
+    },
+    "variables": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "id",
+    "name",
+    "variables"
+  ],
+  "additionalProperties": false
+}
