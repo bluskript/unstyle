@@ -1,0 +1,7 @@
+:root {
+	--surface-base: 31, 30, 51;
+}
+
+* {
+	@apply color-text-base;
+}

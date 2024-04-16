@@ -10,6 +10,10 @@
       "type": "string",
       "format": "string"
     },
+    "name": {
+      "type": "string",
+      "format": "string"
+    },
     "extends": {
       "type": "string",
       "format": "string"

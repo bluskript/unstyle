@@ -1,0 +1,19 @@
+{
+  "$schema": "../schemas/out/stylesheet.json",
+  "id": "unstyle-theme",
+  "name": "Unstyle Extension Theme",
+  "description": "The stylesheet responsible for theming Unstyle itself",
+  "author": "Blusk",
+  "variables": {
+    "surface-light": ["ui:background-light"],
+    "surface-base": ["ui:background"],
+    "surface-dark": ["ui:background-dark"],
+    "primary-light": ["ui:primary-light"],
+    "primary-base": ["ui:primary"],
+    "primary-dark": ["ui:primary-dark"],
+    "secondary-light": ["ui:secondary-light"],
+    "secondary-base": ["ui:secondary"],
+    "secondary-dark": ["ui:secondary-dark"],
+    "text-base": ["ui:text"]
+  }
+}

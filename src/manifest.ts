@@ -24,7 +24,8 @@ const sharedManifest: Partial<chrome.runtime.ManifestBase> = {
     open_in_tab: true,
   },
   permissions: [
-    "activeTab"
+    "activeTab",
+    "storage"
   ],
 };
 

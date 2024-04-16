@@ -1,6 +1,6 @@
 {
-	"$schema": "../schemas/out/color-schema.json",
-	"id": "magic",
+	"$schema": "../schemas/out/palette.json",
+	"id": "bocchi",
 	"variables": {
 		"ui": {
 			"background-dark": "#ece3ff",

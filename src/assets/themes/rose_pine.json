@@ -1,0 +1,18 @@
+{
+	"$schema": "../schemas/out/palette.json",
+	"id": "catppuccin",
+	"variables": {
+		"ui": {
+			"background-dark": "#191724",
+			"background": "#1f1d2e",
+			"background-light": "#26233a",
+			"border": "#6e6a86",
+			"selection": "#908caa",
+			"text": "#e0def4",
+			"primary": "#eb6f92",
+			"secondary": "#c4a7e7",
+			"link": "#89b4fa",
+			"link-visited": "#cba6f7"
+		}
+	}
+}

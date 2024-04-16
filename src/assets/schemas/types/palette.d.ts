@@ -8,6 +8,7 @@
 export interface Palette {
   $schema?: string;
   id: string;
+  name?: string;
   extends?: string;
   variables: {
     code?: {

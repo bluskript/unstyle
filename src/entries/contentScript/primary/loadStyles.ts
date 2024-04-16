@@ -1,13 +1,16 @@
 import archwiki from "~/assets/websites/archwiki.css?raw";
 import archwikiManifest from "~/assets/websites/archwiki.json";
-import selectedTheme from "~/assets/themes/magic.json";
+import bocchi from "~/assets/themes/bocchi.json";
+import rosePine from "~/assets/themes/rose_pine.json";
+import catppuccin from "~/assets/themes/catppuccin.json";
 import uiColorGroup from "~/assets/color_groups/ui.json";
 import { URLPattern } from "urlpattern-polyfill";
 import { Stylesheet } from "~/assets/schemas/types/stylesheet";
 import { Palette } from "~/assets/schemas/types/palette";
 import { ColorGroup } from "~/assets/schemas/types/color-group";
+import { runtime, storage } from "webextension-polyfill";
 
-const stylesheets: {
+export const stylesheets: {
 	glob: URLPattern;
 	manifest: Stylesheet;
 	style: string;
@@ -17,10 +20,30 @@ const stylesheets: {
 	manifest: archwikiManifest as Stylesheet,
 }));
 
+export const colorGroups = {
+	ui: uiColorGroup as ColorGroup,
+};
+
+export const palettes: Record<string, Palette> = {
+	catppuccin,
+	bocchi,
+	rosePine,
+};
+
+export async function getSelectedTheme() {
+	const obj = await storage.local.get("theme");
+	if (!obj["theme"]) {
+		await storage.local.set({ theme: "catppuccin" });
+	}
+	const theme = obj["theme"] || "catppuccin";
+
+	return palettes[theme];
+}
+
 function resolveColorReference(
 	theme: Palette,
 	fallbacks: string[],
-	colorGroups: Record<string, ColorGroup>,
+	colorGroups: Record<string, ColorGroup>
 ): string | undefined {
 	for (let i = 0; i < fallbacks.length; i++) {
 		const reference = fallbacks[i];
@@ -42,16 +65,16 @@ function resolveColorReference(
 	}
 }
 
-const resolveTheme = (
+export const resolveTheme = (
 	theme: Palette,
 	stylesheet: Stylesheet,
-	colorGroups: Record<string, ColorGroup>,
+	colorGroups: Record<string, ColorGroup>
 ) =>
 	Object.fromEntries(
 		Object.entries(stylesheet.variables).map(([name, value]) => [
 			name,
 			resolveColorReference(theme, [name, ...value], colorGroups),
-		]),
+		])
 	);
 
 // function resolveTheme(
@@ -86,27 +109,43 @@ const resolveTheme = (
 // 	return resolvedTheme;
 // }
 
-export const loadStyles = () => {
+const createPaletteStylesheet = (
+	references: Record<string, string | undefined>
+) => {
+	let el =
+		document.querySelector(".unstyle-palette") ||
+		document.createElement("style");
+	el.className = "unstyle-palette";
+	const vars = Object.entries(references)
+		.map(([name, value]) => `--${name}: ${value};`)
+		.join("\n");
+	el.textContent = `
+		:root {
+			${vars}
+		}
+	`;
+	document.body.appendChild(el);
+};
+
+export const loadStyles = async () => {
+	const selectedTheme = await getSelectedTheme();
 	const matchedStyles = stylesheets.filter(({ glob }) =>
-		glob.test(window.location.href),
+		glob.test(window.location.href)
 	);
 	for (const x of matchedStyles) {
 		const styleElement = document.createElement("style");
 		styleElement.textContent = x.style;
 		document.body.appendChild(styleElement);
-		const references = resolveTheme(selectedTheme, x.manifest, {
-			ui: uiColorGroup as ColorGroup,
+		const references = resolveTheme(selectedTheme, x.manifest, colorGroups);
+		createPaletteStylesheet(references);
+
+		runtime.onMessage.addListener((message) => {
+			if (message.type === "palette-change") {
+				const palette = palettes[message.name];
+				const theme = resolveTheme(palette, x.manifest, colorGroups);
+				createPaletteStylesheet(theme);
+			}
+			return true;
 		});
-		const el = document.createElement("style");
-		const vars = Object.entries(references)
-			.map(([name, value]) => `--${name}: ${value};`)
-			.join("\n");
-		el.textContent = `
-		:root {
-			${vars}
-		}
-	`;
-		console.log(vars);
-		document.body.appendChild(el);
 	}
 };
