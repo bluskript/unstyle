@@ -4,7 +4,7 @@ import "@unocss/reset/tailwind.css";
 import { css } from "vite-plugin-inline-css-modules";
 import "./styles.css";
 import { unocssInject } from "./unocssInject";
-import { storage } from "webextension-polyfill";
+import { storage, tabs } from "webextension-polyfill";
 import { palettes } from "~/entries/contentScript/primary/loadStyles";
 import { Palette } from "~/assets/schemas/types/palette";
 
@@ -17,9 +17,10 @@ const classes = css`
 function PaletteCard({ name, palette }: { name: string; palette: Palette }) {
   const setTheme = async () => {
     await storage.local.set({ theme: name });
-    chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
-      chrome.tabs.sendMessage(tabs[0].id!, { type: "palette-change", name });
-    });
+    const tabList = await tabs.query({});
+    for (const tab of tabList) {
+      tabs.sendMessage(tab.id!, { type: "palette-change", name });
+    }
     unocssInject();
     // await runtime.sendMessage(undefined, { type: "palette-change", name });
   };

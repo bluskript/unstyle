@@ -1,0 +1,30 @@
+{
+  "$schema": "../schemas/out/stylesheet.json",
+  "id": "hackernews",
+  "name": "Hackernews",
+  "description": "Custom theme for HackerNews",
+  "author": "Blusk",
+  "variables": {
+    "background": ["ui:background-dark"],
+    "body-background": ["ui:background"],
+    "lighter-background": ["ui:background"],
+    "text": ["ui:text"],
+    "text-post-text": ["ui:text"],
+    "comment-text": ["ui:text"],
+    "comment-box-background": ["ui:background-dark"],
+    "comment-box-text": ["ui:text"],
+    "poll-question-text": ["ui:text"],
+    "yclinks-text": ["ui:text"],
+    "comment-box-border": ["ui:border"],
+    "story-points-text": ["ui:text"],
+    "story-ranking-text": ["ui:text"],
+    "selection": ["ui:selection"],
+    "border": ["ui:border"],
+    "link": ["ui:link"],
+    "link-visited": ["ui:link-visited"],
+    "header-text": ["ui:background-dark"],
+    "logo-border": ["ui:background-dark"],
+    "yellow-td-background": ["ui:primary"],
+    "unknown-green-thing": ["ui:secondary"]
+  }
+}

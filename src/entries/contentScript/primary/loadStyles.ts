@@ -1,5 +1,7 @@
 import archwiki from "~/assets/websites/archwiki.css?raw";
 import archwikiManifest from "~/assets/websites/archwiki.json";
+import hackernews from "~/assets/websites/hackernews.css?raw";
+import hackernewsManifest from "~/assets/websites/hackernews.json";
 import bocchi from "~/assets/themes/bocchi.json";
 import rosePine from "~/assets/themes/rose_pine.json";
 import catppuccin from "~/assets/themes/catppuccin.json";
@@ -14,10 +16,17 @@ export const stylesheets: {
 	glob: URLPattern;
 	manifest: Stylesheet;
 	style: string;
-}[] = [{ glob: "wiki.archlinux.org", style: archwiki }].map((x) => ({
+}[] = [
+	{ glob: "wiki.archlinux.org", style: archwiki, manifest: archwikiManifest },
+	{
+		glob: "news.ycombinator.com",
+		style: hackernews,
+		manifest: hackernewsManifest,
+	},
+].map((x) => ({
 	glob: new URLPattern({ hostname: x.glob }),
 	style: x.style,
-	manifest: archwikiManifest as Stylesheet,
+	manifest: x.manifest as Stylesheet,
 }));
 
 export const colorGroups = {

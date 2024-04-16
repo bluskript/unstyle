@@ -1,0 +1,118 @@
+[bgcolor="#fafaf0"],
+[bgcolor="#f6f6ef"] {
+	background-color: var(--lighter-background);
+}
+
+body {
+	background-color: var(--body-background);
+}
+
+td {
+	color: var(--text);
+}
+
+td[bgcolor="#ff6600"] {
+
+	.pagetop,
+	.pagetop a {
+		color: var(--header-text) !important;
+	}
+
+	img[src="y18.svg"] {
+		content: url("data:image/svg+xml,%3Csvg%20height%3D%2218%22%20viewBox%3D%224%204%20188%20188%22%20width%3D%2218%22%20xmlns%3D%22http://www.w3.org/2000/svg%22%3E%3Cpath%20d%3D%22M4%204h188v188H4z%22%20fill%3D%22%40%7Bpeach%7D%22/%3E%3Cpath%20d%3D%22M73.252%2045.01%2096%2092.401l22.748%2D47.391h19.566l%2D34.324%2064.487v41.493H88.01v%2D41.493L53.686%2045.01z%22%20fill%3D%22%40%7Bcrust%7D%22/%3E%3C/svg%3E");
+		border-color: var(--svg-border) !important;
+	}
+
+	[color="#ffffff"] {
+		color: var(--background);
+	}
+}
+
+td[bgcolor="#ffffaa"] {
+	background-color: var(--yellow-td-background);
+
+	td {
+		color: var(--text);
+	}
+}
+
+.subtext,
+.comhead {
+
+	&,
+	a:link,
+	a:visited {
+		color: var(--link-visited);
+	}
+}
+
+a:link {
+	color: var(--link);
+}
+
+.hnmore a:link,
+a:visited {
+	color: var(--link-visited);
+}
+
+[color="#3c963c"] {
+	color: var(--unknown-green-thing);
+}
+
+/* Story points */
+.score {
+	color: var(--story-points-text);
+}
+
+/* Story ranking number */
+.title {
+	color: var(--story-ranking-text);
+}
+
+/* Comment text */
+.commtext {
+	color: var(--comment-text);
+}
+
+/* Comment hyperlinks */
+.commtext a:link {
+	color: var(--link);
+}
+
+/* Comment box */
+input,
+textarea,
+select {
+	background-color: var(--comment-box-background);
+	color: var(--comment-box-text);
+	border-width: 1px;
+	border-style: solid;
+	border-color: var(--comment-box-border);
+	border-radius: 2px;
+}
+
+input {
+	padding: 2px;
+}
+
+/* Poll questions */
+td.comment>div>font {
+	color: var(--poll-question-text);
+}
+
+/* Text post content */
+.toptext {
+	color: var(--text-post-text);
+}
+
+.votearrow {
+	background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http://www.w3.org/2000/svg%22%20height%3D%2232%22%20viewBox%3D%220%200%2032%2016%22%20width%3D%2232%22%3E%3Cpath%20d%3D%22M2%2027%2016%2D2l14%2029z%22%20fill%3D%22%40%7Bsubtext0%7D%22/%3E%3C/svg%3E");
+}
+
+.yclinks {
+	color: var(--yclinks-text);
+}
+
+b {
+	color: var(--text);
+}
