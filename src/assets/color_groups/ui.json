@@ -4,21 +4,29 @@
   "name": "UI",
   "variables": {
     "background": [],
+    "background-dark": ["ui:background"],
+    "background-light": ["ui:background"],
+    "background-lighter": ["ui:background-light"],
     "primary": [],
     "primary-light": ["ui:primary"],
-    "primary-dark": ["ui:secondary"],
+    "primary-dark": ["ui:primary"],
     "secondary": [],
     "secondary-light": ["ui:secondary"],
     "secondary-dark": ["ui:secondary"],
-    "background-dark": ["ui:background"],
-    "background-light": ["ui:background"],
     "text": [],
+    "text-dark": ["ui:text"],
+    "text-darker": ["ui:text"],
+    "text-contrast": ["ui:background"],
     "selection": [],
     "border": ["ui:background-light"],
+    "border-light": ["ui:border"],
+    "border-dark": ["ui:border"],
     "link": ["ui:primary"],
     "link-visited": ["ui:secondary"],
+    "link-hover": ["ui:primary-light"],
     "button-background": ["ui:primary"],
     "button-background-hover": ["ui:primary-light"],
-    "button-text": ["ui:text"]
+    "button-text": ["ui:text-contrast"],
+    "button-border": ["ui:border"]
   }
 }

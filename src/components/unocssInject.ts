@@ -1,10 +1,10 @@
 import {
 	colorGroups,
-	getSelectedTheme,
 	resolveTheme,
 } from "~/entries/contentScript/primary/loadStyles";
 import unstyleJson from "~/assets/websites/unstyle.json";
 import { Stylesheet } from "~/assets/schemas/types/stylesheet";
+import { Palette } from "~/assets/schemas/types/palette";
 
 function hexToRgb(hex: string) {
 	var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
@@ -20,8 +20,7 @@ function hexToRgb(hex: string) {
 /**
 	* UnoCSS uses r,g,b, so get the theme, convert the hex values to rgb, and inject them to theme the menus
 	**/
-export const unocssInject = async () => {
-	const palette = await getSelectedTheme();
+export const unocssInject = async (palette: Palette) => {
 	const theme = resolveTheme(palette, unstyleJson as Stylesheet, colorGroups);
 	const el = document.createElement("style");
 	const vars = Object.entries(theme)

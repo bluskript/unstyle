@@ -1,17 +1,19 @@
 {
 	"$schema": "../schemas/out/palette.json",
-	"id": "catppuccin",
+	"id": "catppuccin-mocha",
+	"name": "Catppuccin Mocha",
+	"dark": true,
 	"variables": {
 		"ui": {
-			"background-dark": "#1e1e2e",
-			"background": "#181825",
+			"background": "#1e1e2e",
+			"background-dark": "#181825",
 			"background-light": "#313244",
 			"border": "#45475a",
 			"selection": "#585b70",
 			"text": "#cdd6f4",
 			"primary": "#f5e0dc",
 			"secondary": "#b4befe",
-			"link": "#89b4fa",
+			"link": "#b4befe",
 			"link-visited": "#cba6f7"
 		}
 	}

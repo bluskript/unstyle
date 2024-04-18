@@ -8,7 +8,8 @@
 export interface Palette {
   $schema?: string;
   id: string;
-  name?: string;
+  name: string;
+  dark: boolean;
   extends?: string;
   variables: {
     code?: {
@@ -89,22 +90,30 @@ export interface Palette {
     };
     ui?: {
       background?: string;
+      "background-dark"?: string;
+      "background-light"?: string;
+      "background-lighter"?: string;
       primary?: string;
       "primary-light"?: string;
       "primary-dark"?: string;
       secondary?: string;
       "secondary-light"?: string;
       "secondary-dark"?: string;
-      "background-dark"?: string;
-      "background-light"?: string;
       text?: string;
+      "text-dark"?: string;
+      "text-darker"?: string;
+      "text-contrast"?: string;
       selection?: string;
       border?: string;
+      "border-light"?: string;
+      "border-dark"?: string;
       link?: string;
       "link-visited"?: string;
+      "link-hover"?: string;
       "button-background"?: string;
       "button-background-hover"?: string;
       "button-text"?: string;
+      "button-border"?: string;
     };
   };
 }

@@ -59,11 +59,18 @@ body {
   color: var(--text);
 }
 
-.vector-feature-zebra-design-disabled,
-#vector-toc-pinned-container,
+.vector-feature-zebra-design-disabled #vector-toc-pinned-container,
 .vector-toc::after {
   background: linear-gradient(rgba(255, 255, 255, 0),
       var(--toc-background)) !important;
+}
+
+.vector-pinned-container {
+  border-color: var(--toc-border) !important;
+}
+
+.vector-pinnable-header-label {
+  color: var(--toc-header-label) !important;
 }
 
 #content table,
@@ -78,9 +85,26 @@ body {
   color: var(--text) !important;
 }
 
+.mw-headline::before {
+  color: var(--headline-number-text) !important;
+}
+
 #archnavbar {
   background-color: var(--background-light) !important;
   border-bottom-color: var(--header-border) !important;
+}
+
+#archnavbar ul#archnavbarlist li a {
+  color: var(--header-text);
+}
+
+#archnavbar ul li.anb-selected a {
+  color: var(--header-selected-text) !important;
+}
+
+.catlinks {
+  background-color: var(--category-links-background) !important;
+  border-color: var(--category-links-border) !important;
 }
 
 #content,
@@ -115,27 +139,32 @@ tt {
   border-color: var(--code-border);
 }
 
-button {
-  background-color: var(--button-background);
-  color: var(--button-text);
-  border-color: var(--button-border);
+.cdx-search-input__end-button {
+  background-color: var(--button-background) !important;
+  color: var(--button-text) !important;
+  border-color: var(--button-border) !important;
 }
 
-button:hover {
-  background-color: var(--button-background-hover);
+.cdx-search-input__end-button:hover {
+  background-color: var(--button-background-hover) !important;
+}
+
+.vector-dropdown-content {
+  background-color: var(--language-dropdown-background) !important;
+  border-color: var(--language-dropdown-border) !important;
 }
 
 input,
 textarea {
-  background-color: var(--input-background);
-  color: var(--input-text);
-  border-color: var(--input-border);
+  background-color: var(--input-background) !important;
+  color: var(--input-text) !important;
+  border-color: var(--input-border) !important;
 }
 
 input:focus,
 textarea:focus {
-  border-color: var(--input-focus-border);
-  box-shadow: 0 0 0 2px var(--input-focus-shadow);
+  border-color: var(--input-focus-border) !important;
+  box-shadow: 0 0 0 1px var(--input-focus-shadow) !important;
 }
 
 .overlay {

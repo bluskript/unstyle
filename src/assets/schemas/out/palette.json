@@ -14,6 +14,10 @@
       "type": "string",
       "format": "string"
     },
+    "dark": {
+      "type": "boolean",
+      "format": "boolean"
+    },
     "extends": {
       "type": "string",
       "format": "string"
@@ -330,6 +334,18 @@
               "type": "string",
               "format": "string"
             },
+            "background-dark": {
+              "type": "string",
+              "format": "string"
+            },
+            "background-light": {
+              "type": "string",
+              "format": "string"
+            },
+            "background-lighter": {
+              "type": "string",
+              "format": "string"
+            },
             "primary": {
               "type": "string",
               "format": "string"
@@ -354,15 +370,19 @@
               "type": "string",
               "format": "string"
             },
-            "background-dark": {
-              "type": "string",
-              "format": "string"
-            },
-            "background-light": {
-              "type": "string",
-              "format": "string"
-            },
             "text": {
+              "type": "string",
+              "format": "string"
+            },
+            "text-dark": {
+              "type": "string",
+              "format": "string"
+            },
+            "text-darker": {
+              "type": "string",
+              "format": "string"
+            },
+            "text-contrast": {
               "type": "string",
               "format": "string"
             },
@@ -374,11 +394,23 @@
               "type": "string",
               "format": "string"
             },
+            "border-light": {
+              "type": "string",
+              "format": "string"
+            },
+            "border-dark": {
+              "type": "string",
+              "format": "string"
+            },
             "link": {
               "type": "string",
               "format": "string"
             },
             "link-visited": {
+              "type": "string",
+              "format": "string"
+            },
+            "link-hover": {
               "type": "string",
               "format": "string"
             },
@@ -393,6 +425,10 @@
             "button-text": {
               "type": "string",
               "format": "string"
+            },
+            "button-border": {
+              "type": "string",
+              "format": "string"
             }
           },
           "additionalProperties": false
@@ -403,6 +439,8 @@
   },
   "required": [
     "id",
+    "name",
+    "dark",
     "variables"
   ],
   "additionalProperties": false

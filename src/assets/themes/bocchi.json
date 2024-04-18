@@ -1,6 +1,8 @@
 {
 	"$schema": "../schemas/out/palette.json",
 	"id": "bocchi",
+	"name": "Bocchi",
+	"dark": false,
 	"variables": {
 		"ui": {
 			"background-dark": "#ece3ff",
@@ -9,10 +11,14 @@
 			"border": "#78699a",
 			"selection": "#7c42ff",
 			"text": "#140f1f",
+			"text-dark": "#4d445f",
+			"text-darker": "#978db0",
+			"text-contrast": "#140f1f",
 			"primary": "#3d9cff",
 			"secondary": "#ffbb24",
-			"link": "#32355c",
-			"link-visited": "#58325c"
+			"link": "#3c3545",
+			"link-visited": "#58325c",
+			"button-border": "#000000"
 		}
 	}
 }

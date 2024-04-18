@@ -6,6 +6,7 @@ import bocchi from "~/assets/themes/bocchi.json";
 import rosePine from "~/assets/themes/rose_pine.json";
 import catppuccin from "~/assets/themes/catppuccin.json";
 import uiColorGroup from "~/assets/color_groups/ui.json";
+import codeColorGroup from "~/assets/color_groups/code.json";
 import { URLPattern } from "urlpattern-polyfill";
 import { Stylesheet } from "~/assets/schemas/types/stylesheet";
 import { Palette } from "~/assets/schemas/types/palette";
@@ -31,6 +32,7 @@ export const stylesheets: {
 
 export const colorGroups = {
 	ui: uiColorGroup as ColorGroup,
+	code: codeColorGroup as ColorGroup,
 };
 
 export const palettes: Record<string, Palette> = {
@@ -49,11 +51,11 @@ export async function getSelectedTheme() {
 	return palettes[theme];
 }
 
-function resolveColorReference(
+export function resolveColorReference(
 	theme: Palette,
 	fallbacks: string[],
 	colorGroups: Record<string, ColorGroup>
-): string | undefined {
+): { color: string; source: string } | undefined {
 	for (let i = 0; i < fallbacks.length; i++) {
 		const reference = fallbacks[i];
 		if (reference.includes(":")) {
@@ -62,13 +64,21 @@ function resolveColorReference(
 				`${group}:${colorKey}`,
 				...colorGroups[group].variables[colorKey],
 			];
-			let result: string | undefined;
-			if (i === 0 || !fallbacks || fallbacks.length === 0)
-				result =
-					theme.variables[group as keyof Palette["variables"]]?.[
-					colorKey as keyof Palette["variables"][keyof Palette["variables"]]
-					];
-			else result = resolveColorReference(theme, fallbacks, colorGroups);
+			let result: { color: string; source: string } | undefined;
+			if (i === 0 || !fallbacks || fallbacks.length === 0) {
+				const x = (
+					theme.variables[group as keyof Palette["variables"]] as Record<
+						string,
+						string | undefined
+					>
+				)?.[colorKey];
+				result = x
+					? {
+						color: x,
+						source: `${group}:${colorKey}`,
+					}
+					: undefined;
+			} else result = resolveColorReference(theme, fallbacks, colorGroups);
 			if (result) return result;
 		}
 	}
@@ -82,7 +92,7 @@ export const resolveTheme = (
 	Object.fromEntries(
 		Object.entries(stylesheet.variables).map(([name, value]) => [
 			name,
-			resolveColorReference(theme, [name, ...value], colorGroups),
+			resolveColorReference(theme, [name, ...value], colorGroups)?.color,
 		])
 	);
 

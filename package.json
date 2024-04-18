@@ -15,11 +15,13 @@
   },
   "license": "MIT",
   "devDependencies": {
+    "@iconify-json/tabler": "^1.1.110",
     "@samrum/vite-plugin-web-extension": "^5.1.0",
     "@types/bun": "^1.0.12",
     "@types/chrome": "^0.0.254",
     "@types/micromatch": "^4.0.7",
     "@types/webextension-polyfill": "^0.10.7",
+    "@unocss/preset-icons": "^0.59.2",
     "@unocss/transformer-directives": "^0.59.2",
     "json-schema-to-typescript": "^13.1.2",
     "typescript": "^5.4.5",
@@ -33,7 +35,6 @@
     "dtrace-provider"
   ],
   "dependencies": {
-    "@unocss/preset-icons": "^0.59.2",
     "@unocss/preset-uno": "^0.59.2",
     "@unocss/reset": "^0.59.2",
     "match-url-wildcard": "^0.0.5",
