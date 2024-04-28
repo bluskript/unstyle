@@ -30,10 +30,12 @@ function PaletteCard({
   name,
   palette,
   updatePalette,
+  settingsClicked,
 }: {
   name: string;
   palette: Palette;
   updatePalette: () => any;
+  settingsClicked: () => any;
 }) {
   const setTheme = async () => {
     await storage.local.set({ theme: name });
@@ -46,7 +48,7 @@ function PaletteCard({
 
   return (
     <button
-      class="rounded-md overflow-hidden bg-surface-light hover:bg-surface-dark"
+      class="rounded-md overflow-hidden bg-surface-light hover:bg-surface-dark relative group"
       onClick={setTheme}
     >
       <div
@@ -66,6 +68,15 @@ function PaletteCard({
         ></div>
       </div>
       <span class="color-text-base font-bold">{palette.name}</span>
+      <div class="absolute right-1 top-1 h-full flex align-center group-hover:opacity-100 opacity-0">
+        <a
+          class="i-tabler-settings"
+          style={{ color: palette.variables.ui?.text }}
+          onClick={settingsClicked}
+        >
+          Settings
+        </a>
+      </div>
     </button>
   );
 }
@@ -130,6 +141,9 @@ function PaletteEditorItem({
   }
 
   function handleInput(key: KeyboardEvent) {
+    if (key.code === "Enter") {
+      key.preventDefault();
+    }
     setTimeout(() => {
       if (key.code === "Enter") {
         return handleInputBlur();
@@ -139,9 +153,9 @@ function PaletteEditorItem({
   }
 
   const colorStyle = () => {
-  const isLight = x && isHexLight(isEditing() ? editText() : x.color)
-  // const outline = isLight ? "white" : "black"
-  const background = isLight ? "black" : "white"
+    const isLight = x && isHexLight(isEditing() ? editText() : x.color);
+    // const outline = isLight ? "white" : "black"
+    const background = isLight ? "black" : "white";
     return {
       color: isEditing() ? editText() : x?.color,
       // "text-shadow": `-1px -1px 0 ${outline}, 1px -1px 0 ${outline}, -1px 1px 0 ${outline}, 1px 1px 0 ${outline}`,

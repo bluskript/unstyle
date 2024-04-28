@@ -2,6 +2,7 @@
   "$schema": "../schemas/out/stylesheet.json",
   "id": "hackernews",
   "name": "Hackernews",
+  "glob": "news.ycombinator.com",
   "description": "Custom theme for HackerNews",
   "author": "Blusk",
   "variables": {

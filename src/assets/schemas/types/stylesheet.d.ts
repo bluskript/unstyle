@@ -9,6 +9,7 @@ export interface Stylesheet {
   $schema?: string;
   id: string;
   name: string;
+  glob: string;
   description?: string;
   author?: string;
   variables: {

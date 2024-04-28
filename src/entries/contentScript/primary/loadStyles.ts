@@ -1,10 +1,3 @@
-import archwiki from "~/assets/websites/archwiki.css?raw";
-import archwikiManifest from "~/assets/websites/archwiki.json";
-import hackernews from "~/assets/websites/hackernews.css?raw";
-import hackernewsManifest from "~/assets/websites/hackernews.json";
-import bocchi from "~/assets/themes/bocchi.json";
-import rosePine from "~/assets/themes/rose_pine.json";
-import catppuccin from "~/assets/themes/catppuccin.json";
 import uiColorGroup from "~/assets/color_groups/ui.json";
 import codeColorGroup from "~/assets/color_groups/code.json";
 import { URLPattern } from "urlpattern-polyfill";
@@ -16,30 +9,31 @@ import { runtime, storage } from "webextension-polyfill";
 export const stylesheets: {
 	glob: URLPattern;
 	manifest: Stylesheet;
-	style: string;
-}[] = [
-	{ glob: "wiki.archlinux.org", style: archwiki, manifest: archwikiManifest },
-	{
-		glob: "news.ycombinator.com",
-		style: hackernews,
-		manifest: hackernewsManifest,
-	},
-].map((x) => ({
-	glob: new URLPattern({ hostname: x.glob }),
-	style: x.style,
-	manifest: x.manifest as Stylesheet,
-}));
+	style: () => Promise<{ default: string }>;
+}[] = Object.entries<Stylesheet>(
+	import.meta.glob("../../../assets/websites/*.json", { eager: true })
+)
+	.map(([_name, stylesheet]) => ({
+		glob: stylesheet.glob,
+		manifest: stylesheet,
+		style: () => import(`../../../assets/websites/${stylesheet.id}.css?raw`),
+	}))
+	.map((x) => ({
+		glob: new URLPattern({ hostname: x.glob }),
+		style: x.style,
+		manifest: x.manifest as Stylesheet,
+	}));
 
 export const colorGroups = {
 	ui: uiColorGroup as ColorGroup,
 	code: codeColorGroup as ColorGroup,
 };
 
-export const palettes: Record<string, Palette> = {
-	catppuccin,
-	bocchi,
-	rosePine,
-};
+export const palettes: Record<string, Palette> = Object.fromEntries(
+	Object.entries<Palette>(
+		import.meta.glob("../../../assets/themes/*.json", { eager: true })
+	).map(([_name, value]) => [value.id, value])
+);
 
 export async function getSelectedTheme() {
 	const obj = await storage.local.get("theme");
@@ -72,12 +66,16 @@ export function resolveColorReference(
 						string | undefined
 					>
 				)?.[colorKey];
-				result = x
-					? {
-						color: x,
-						source: `${group}:${colorKey}`,
-					}
-					: undefined;
+				if (x?.includes(":")) {
+					result = resolveColorReference(theme, [x, x], colorGroups);
+				} else {
+					result = x
+						? {
+							color: x,
+							source: `${group}:${colorKey}`,
+						}
+						: undefined;
+				}
 			} else result = resolveColorReference(theme, fallbacks, colorGroups);
 			if (result) return result;
 		}
@@ -153,7 +151,7 @@ export const loadStyles = async () => {
 	);
 	for (const x of matchedStyles) {
 		const styleElement = document.createElement("style");
-		styleElement.textContent = x.style;
+		styleElement.textContent = (await x.style()).default;
 		document.body.appendChild(styleElement);
 		const references = resolveTheme(selectedTheme, x.manifest, colorGroups);
 		createPaletteStylesheet(references);

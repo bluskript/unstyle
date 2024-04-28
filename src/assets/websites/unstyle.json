@@ -1,6 +1,6 @@
 {
   "$schema": "../schemas/out/stylesheet.json",
-  "id": "unstyle-theme",
+  "id": "unstyle",
   "name": "Unstyle Extension Theme",
   "description": "The stylesheet responsible for theming Unstyle itself",
   "author": "Blusk",

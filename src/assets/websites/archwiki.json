@@ -1,7 +1,8 @@
 {
   "$schema": "../schemas/out/stylesheet.json",
-  "id": "arch-wiki-theme",
+  "id": "archwiki",
   "name": "Arch Wiki Theme",
+  "glob": "wiki.archlinux.org",
   "description": "Custom theme for Arch Wiki",
   "author": "Blusk",
   "variables": {
